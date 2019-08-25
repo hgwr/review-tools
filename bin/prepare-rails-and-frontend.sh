@@ -15,15 +15,8 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-function run_additional_task () {
-    task_name="additional_$1"
-    if [ -f "${HOME}/.config/review-tools.yml" ]; then
-        additional_task=$(ruby -ryaml -e "conf = YAML.load_file(%Q(#{ENV['HOME']}/.config/review-tools.yml)); puts conf['$task_name']")
-        if [ "$additional_task" != "" ]; then
-            eval "$additional_task" || true
-        fi
-    fi
-}
+dir=$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
+source "${dir}/common-functions.sh"
 
 trap 'echo "Ctrl-C captured and exit."; exit 1' INT
 trap 'echo "some error occured at $(pwd) and exit."; exit 8' SIGHUP
