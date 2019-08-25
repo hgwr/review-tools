@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 #
-# Usage: prepare-rails-and-frontend.sh
+# Usage: check-and-test.sh
 #
 # Example of ~/.config/review-tools.yml
 # 
-# additional_preparation: |
-#   ( cd frontend && nodebrew use v`cat .node-version` && rm -rf node_modules && yarn )
-#   
-# additional_db_preparation: |
-#   bundle exec bin/rails db:task:you:made
+# additional_test_tasks: |
+#   cd frontend && ng test --watch=false --code-coverage
+#   cd frontend && ng lint
 #
 
 set -o errexit
@@ -22,6 +20,11 @@ dir=$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 source "${dir}/common-functions.sh"
 
 bundle exec pronto run
-bundle exec rspec spec
+if grep 'rspec-rails' Gemfile > /dev/null; then
+  bundle exec rspec spec
+else
+  bundle exec rake test
+fi
 bundle exec rubocop
 
+run_additional_task test_tasks
