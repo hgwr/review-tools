@@ -2,6 +2,11 @@
 #
 # Usage: prepare-rails-and-frontend.sh
 #
+# Example of ~/.config/review-tools.yml
+# 
+# additional_db_preparation: |
+#   bundle exec bin/rails db:task:you:made
+#
 
 set -o errexit
 set -o pipefail
