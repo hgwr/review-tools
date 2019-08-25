@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'nokogiri'
+require 'pry'
 
 unless File.exist?('coverage/index.html')
   warn 'Error: coverage/index.html dose not exist.'
