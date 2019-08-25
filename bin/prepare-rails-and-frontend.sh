@@ -19,3 +19,10 @@ if [ -f .ruby-version ]; then
     rbenv local `cat .ruby-version`
 fi
 bundle install --path vendor/bundle --jobs=4 --retry=3
+
+bundle exec bin/rails db:create
+bundle exec bin/rails db:migrate
+
+RAILS_ENV=test bundle exec bin/rails db:create
+RAILS_ENV=test bundle exec bin/rails db:migrate
+
