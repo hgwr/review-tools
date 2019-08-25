@@ -26,3 +26,9 @@ bundle exec bin/rails db:migrate
 RAILS_ENV=test bundle exec bin/rails db:create
 RAILS_ENV=test bundle exec bin/rails db:migrate
 
+if [ -f "${HOME}/.config/review-tools.yml" ]; then
+  additional_db_preparation=$(ruby -ryaml -e 'conf = YAML.load_file("#{ENV["HOME"]}/.config/review-tools.yml"); puts conf["additional_db_preparation"]')
+  if [ "$additional_db_preparation" != "" ]; then
+      eval "$additional_db_preparation" || true
+  fi
+fi
