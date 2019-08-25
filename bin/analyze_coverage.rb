@@ -22,10 +22,9 @@ src_branch = ARGV[3]
 
   next unless file_name =~ /\.rb\z/
 
-  puts "\n========== #{file_name} =========="
-
   a_tags = html_doc.css(%Q(a[title="#{file_name}"]))
 
+  puts "\n========== #{file_name} =========="
   if a_tags.length == 0
     puts "  no results"
     next
@@ -34,6 +33,9 @@ src_branch = ARGV[3]
   file_id = a_tags.first['href'].sub(/^#/, '')
 
   source_tables = html_doc.css("div.source_table\##{file_id}")
+
+  coverage_rate = source_tables.css('div.header h4 span').text.strip
+  puts "rate #{coverage_rate}"
 
   source_tables.css('li').each do |li|
     linenumber = li['data-linenumber']
