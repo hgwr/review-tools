@@ -30,5 +30,3 @@ logifle=~/tmp/run_review_`date +'%Y%m%d-%H%M%S'`.log
     "${script_dir}/check-and-test.sh"
     "${script_dir}/analyze_coverage.rb" into "$dst_branch" from "$src_branch"
 ) 2>&1 | tee "$logifle"
-
-/usr/bin/less -R "$logifle"
