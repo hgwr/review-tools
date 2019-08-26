@@ -24,7 +24,7 @@ if [ ! -d .git ]; then
 fi
 
 git checkout master
-git fetch -a
+git fetch -a || true
 git pull origin master
 
 git checkout "$dst_branch"
