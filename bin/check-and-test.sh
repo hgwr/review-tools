@@ -19,7 +19,7 @@ trap 'echo "some error occured at $(pwd) and exit."; exit 8' SIGHUP
 script_dir=$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 source "${script_dir}/common-functions.sh"
 
-run_additional_task set_test_environment_variables
+load_environment_variables test_environment_variables
 
 bundle exec pronto run
 if grep 'rspec-rails' Gemfile > /dev/null; then
