@@ -21,6 +21,7 @@ source "${script_dir}/common-functions.sh"
 
 load_environment_variables test_environment_variables
 
+cp /dev/null log/test.log
 bundle exec pronto run
 if grep 'rspec-rails' Gemfile > /dev/null; then
   bundle exec rspec spec
