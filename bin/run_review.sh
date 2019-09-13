@@ -6,6 +6,7 @@
 set -o errexit
 set -o pipefail
 set -o nounset
+set -o xtrace
 
 script_dir=$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 source "${script_dir}/common-functions.sh"
