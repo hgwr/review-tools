@@ -24,7 +24,7 @@ Or install it yourself as:
 
 > ### add some cool features #2
 >
-> *Open*	hgwr wants to merge 4 commits into master from dev
+> **Open**	hgwr wants to merge 4 commits into master from dev
 
 2. Copy `into master from dev` and paste like `run_review.sh into master from dev` to terminal.
 
