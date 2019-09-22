@@ -39,8 +39,6 @@ logifle=~/tmp/run_review_`date +'%Y%m%d-%H%M%S'`.log
       "${script_dir}/analyze_coverage.rb" into "$dst_branch" from "$src_branch"
     fi
 
-    show_notification "run_review.sh" "All tasks completed." $success
-
 ) 2>&1 | tee "$logifle"
 
-/usr/bin/less -R $logifle
+show_notification "run_review.sh" "All tasks completed." $success && /usr/bin/less -R $logifle
