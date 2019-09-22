@@ -25,18 +25,22 @@ load_environment_variables test_environment_variables
 mkdir -p log
 cp /dev/null log/test.log
 
-if grep 'pronto' Gemfile || true > /dev/null; then
-  bundle exec pronto run
+if [ `(grep 'pronto' Gemfile || true) | wc -l` -eq "1" ]; then
+    bundle exec pronto run
+elif [ `(which pront || true) | wc -l` -eq "1" ]; then
+    pronto run
 fi
 
-if grep 'rspec-rails' Gemfile || true > /dev/null; then
-  bundle exec rspec spec
+if [ `(grep 'rspec-rails' Gemfile || true) | wc -l` -eq "1" ]; then
+    bundle exec rspec spec
 else
-  bundle exec rake test
+    bundle exec rake test
 fi
 
-if grep 'rubocop' Gemfile || true > /dev/null; then
-  bundle exec rubocop
+if [ `(grep 'rubocop' Gemfile || true) | wc -l` -eq "1" ]; then
+    bundle exec rubocop
+elif [ `(which rubocop || true) | wc -l` -eq "1" ]; then
+    rubocop
 fi
 
 run_additional_task test_tasks
