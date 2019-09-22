@@ -41,4 +41,6 @@ logifle=~/tmp/run_review_`date +'%Y%m%d-%H%M%S'`.log
 
 ) 2>&1 | tee "$logifle"
 
-show_notification "run_review.sh" "All tasks completed." $success && /usr/bin/less -R $logifle
+show_notification "run_review.sh" "All tasks completed." $success
+
+/usr/bin/less -R $logifle

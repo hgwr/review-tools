@@ -17,7 +17,7 @@ function load_environment_variables () {
 
 function show_notification () {
     if [ -x /usr/bin/osascript ]; then
-        /usr/bin/osascript -e "display notification \"$2\" with title \"$1\""
+        /usr/bin/osascript -e "display notification \"$2\" with title \"$1\"" &
     else
         echo "Notification: $1: $2" 1>&2
     fi
