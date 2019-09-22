@@ -13,8 +13,6 @@ Gem::Specification.new do |spec|
   spec.homepage = 'https://rubygems.org/gems/review-tools'
   spec.license = 'MIT'
 
-  spec.metadata['allowed_push_host'] = 'https://github.com/hgwr/review-tools/'
-
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/hgwr/review-tools/'
   spec.metadata['changelog_uri'] = 'https://github.com/hgwr/review-tools/'
