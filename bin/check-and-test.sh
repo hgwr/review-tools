@@ -31,7 +31,7 @@ elif [ `(which pront || true) | wc -l` -eq "1" ]; then
     pronto run
 fi
 
-if [ `(grep 'rspec-rails' Gemfile || true) | wc -l` -eq "1" ]; then
+if [ `(grep 'rspec' Gemfile || true) | wc -l` -eq "1" ]; then
     bundle exec rspec spec
 else
     bundle exec rake test
