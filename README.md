@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/review-tools.svg)](https://badge.fury.io/rb/review-tools)
+
 # Review::Tools
 
 This is a tool that automates the review of pull requests for Rails project on GitHub.
