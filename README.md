@@ -33,7 +33,7 @@ Or install it yourself as:
 - `git checkout ...`
 - Preparing environments. (e.g. Database migrations)
 - Run tests
-- If you are using simplecov, then you can see coverages of modified files.
+- If you are using simplecov, you can see coverages of modified files.
 
 ## Customization
 

@@ -4,7 +4,7 @@ RSpec.describe Review::Tools do
   end
 
   it "does something useful" do
-    pending
+    pending "A test for testing. If you need to test bin/check-and-test.sh, comment out this pending line."
     expect(false).to eq(true)
   end
 end
