@@ -22,6 +22,7 @@ source "${script_dir}/common-functions.sh"
 
 load_environment_variables test_environment_variables
 
+mkdir -p log
 cp /dev/null log/test.log
 
 if grep 'pronto' Gemfile || true > /dev/null; then
