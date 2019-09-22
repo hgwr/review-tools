@@ -32,4 +32,5 @@ logifle=~/tmp/run_review_`date +'%Y%m%d-%H%M%S'`.log
     "${script_dir}/analyze_coverage.rb" into "$dst_branch" from "$src_branch"
 ) 2>&1 | tee "$logifle"
 
+osascript -e 'display notification "review-tools の実行が完了しました。" with title "run_review.sh"'
 /usr/bin/less -R $logifle
