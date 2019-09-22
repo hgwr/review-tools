@@ -9,6 +9,7 @@ end
 gem 'nokogiri'
 
 group :development, :test do
+  gem 'rake', '~> 10.0'
   gem 'byebug', platform: :mri
   gem 'pry-byebug'
   gem 'pronto'

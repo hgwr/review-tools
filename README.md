@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/hgwr/review-tools.svg?branch=master)](https://travis-ci.org/hgwr/review-tools)
+
 [![Gem Version](https://badge.fury.io/rb/review-tools.svg)](https://badge.fury.io/rb/review-tools)
 
 # Review::Tools
