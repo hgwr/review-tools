@@ -35,7 +35,9 @@ logifle=~/tmp/run_review_`date +'%Y%m%d-%H%M%S'`.log
     "${script_dir}/check-and-test.sh" || 
         show_notification "run_review.sh" "Failed: check-and-test.sh" $error_exit
 
-    "${script_dir}/analyze_coverage.rb" into "$dst_branch" from "$src_branch" || true
+    if [ -r 'coverage/index.html' ]; then
+      "${script_dir}/analyze_coverage.rb" into "$dst_branch" from "$src_branch"
+    fi
 
 ) 2>&1 | tee "$logifle"
 
