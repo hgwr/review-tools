@@ -28,7 +28,7 @@ Or install it yourself as:
 
 2. Copy `into master from dev` and paste like `run_review.sh into master from dev` to terminal.
 
-3. Then, `run_review.sh` executes these operaitons.
+3. Then, `run_review.sh into master from dev` executes these operaitons.
 
 - `git checkout ...`
 - Preparing environments. (e.g. Database migrations)
@@ -37,7 +37,7 @@ Or install it yourself as:
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/review-tools. 
+Bug reports and pull requests are welcome on GitHub at https://github.com/hgwr/review-tools. 
 This project is intended to be a safe, welcoming space for collaboration, 
 and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
@@ -47,4 +47,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Review::Tools project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/review-tools/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Review::Tools project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/hgwr/review-tools/blob/master/CODE_OF_CONDUCT.md).
