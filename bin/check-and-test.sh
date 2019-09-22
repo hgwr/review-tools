@@ -5,8 +5,7 @@
 # Example of ~/.config/review-tools.yml
 # 
 # additional_test_tasks: |
-#   cd frontend && ng test --watch=false --code-coverage
-#   cd frontend && ng lint
+#   eslint app/assets/javascripts/**/*
 #
 
 set -o errexit

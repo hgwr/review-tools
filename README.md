@@ -35,6 +35,23 @@ Or install it yourself as:
 - Run tests
 - If you are using simplecov, then you can see coverages of modified files.
 
+## Customization
+
+You can put custom shell scripts in `~/.config/review-tools.yml`.
+
+For example:
+
+```
+additional_preparation: |
+  rm -rf node_modules && yarn
+
+additional_db_preparation: |
+  bundle exec bin/rails db:some:your:task
+
+additional_test_tasks: |
+  eslint app/assets/javascripts/**/*
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/hgwr/review-tools. 
