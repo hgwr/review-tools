@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary = %q(This is a tool that automates the review of pull requests for Rails project on GitHub.)
   spec.description = %q(This is a tool that automates the review of pull requests for Rails project on GitHub.)
-  spec.homepage = 'https://github.com/hgwr/review-tools/'
+  spec.homepage = 'https://rubygems.org/gems/review-tools'
   spec.license = 'MIT'
 
   spec.metadata['allowed_push_host'] = 'https://github.com/hgwr/review-tools/'
