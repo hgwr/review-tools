@@ -29,7 +29,7 @@ logifle=~/tmp/run_review_`date +'%Y%m%d-%H%M%S'`.log
     "${script_dir}/git-checkout-target-branches.sh" into "$dst_branch" from "$src_branch"
     "${script_dir}/prepare-rails-and-frontend.sh"
     "${script_dir}/check-and-test.sh"
-    "${script_dir}/analyze_coverage.rb" into "$dst_branch" from "$src_branch"
+    "${script_dir}/analyze_coverage.rb" into "$dst_branch" from "$src_branch" || true
 ) 2>&1 | tee "$logifle"
 
 osascript -e 'display notification "review-tools の実行が完了しました。" with title "run_review.sh"'

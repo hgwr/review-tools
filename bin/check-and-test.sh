@@ -23,12 +23,19 @@ source "${script_dir}/common-functions.sh"
 load_environment_variables test_environment_variables
 
 cp /dev/null log/test.log
-bundle exec pronto run
-if grep 'rspec-rails' Gemfile > /dev/null; then
+
+if grep 'pronto' Gemfile || true > /dev/null; then
+  bundle exec pronto run
+fi
+
+if grep 'rspec-rails' Gemfile || true > /dev/null; then
   bundle exec rspec spec
 else
   bundle exec rake test
 fi
-bundle exec rubocop
+
+if grep 'rubocop' Gemfile || true > /dev/null; then
+  bundle exec rubocop
+fi
 
 run_additional_task test_tasks
