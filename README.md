@@ -1,16 +1,13 @@
 # Review::Tools
 
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/review/tools`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This is a tool that automates the review of pull requests for Rails project on GitHub.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'review-tools'
+gem 'review-tools', require: false, group: :development
 ```
 
 And then execute:
@@ -23,17 +20,28 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+1. See the pull request page on GitHub. You will see like these lines.
 
-## Development
+```
+*add some cool features #2*
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Open	hgwr wants to merge 4 commits into master from dev
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+2. Copy `into master from dev` and paste like `run_review.sh into master from dev` to terminal.
+
+3. Then, `run_review.sh` executes these operaitons.
+
+- `git checkout ...`
+- Preparing environments. (e.g. Database migrations)
+- Run tests
+- If you are using simplecov, then you can see coverages of modified files.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/review-tools. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/review-tools. 
+This project is intended to be a safe, welcoming space for collaboration, 
+and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
