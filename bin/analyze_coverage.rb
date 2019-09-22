@@ -45,7 +45,7 @@ src_branch = ARGV[3]
     when 'covered'
       printf '%05d o ', linenumber
     else
-      printf '%05d x ', linenumber
+      printf '%05d ? ', linenumber
     end
     puts li.css('code').text
   end
