@@ -7,7 +7,7 @@ This is a tool that automates the review of pull requests for Rails project on G
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'review-tools', group: :development
+gem 'review-tools', require: false, group: :development
 ```
 
 And then execute:
@@ -20,7 +20,22 @@ Or install it yourself as:
 
 ## Usage
 
-TODO
+1. See the pull request page on GitHub. You will see like these lines.
+
+```
+*add some cool features #2*
+
+Open	hgwr wants to merge 4 commits into master from dev
+```
+
+2. Copy `into master from dev` and paste like `run_review.sh into master from dev` to terminal.
+
+3. Then, `run_review.sh` executes these operaitons.
+
+- `git checkout ...`
+- Preparing environments. (e.g. Database migrations)
+- Run tests
+- If you are using simplecov, then you can see coverages of modified files.
 
 ## Contributing
 
