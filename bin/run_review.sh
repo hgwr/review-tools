@@ -9,13 +9,13 @@ set -o nounset
 set -o xtrace
 
 script_dir=$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
-source "${script_dir}/common-functions.sh"
+source "${script_dir}/common_functions.sh"
 
 trap 'echo "Ctrl-C captured and exit."; exit 1' INT
 trap 'echo "some error occured at $(pwd) and exit."; exit 8' SIGHUP
 
 if [ $# -ne 4 ] || [ "$1" != "into" ]  || [ "$3" != "from" ]; then
-    echo "Usage: git-checkout-target-branches.sh into milestone/abc from feature/cde" 1>&2
+    echo "Usage: run_review into milestone/abc from feature/cde" 1>&2
     exit 1
 fi
 
@@ -26,17 +26,17 @@ mkdir -p ~/tmp
 logifle=~/tmp/run_review_`date +'%Y%m%d-%H%M%S'`.log
 
 (
-    "${script_dir}/git-checkout-target-branches.sh" into "$dst_branch" from "$src_branch" ||
-        show_notification "run_review.sh" "Failed: git-checkout-target-branches.sh" $error_exit
+    "${script_dir}/git_checkout_target_branches.sh" into "$dst_branch" from "$src_branch" ||
+        show_notification "run_review.sh" "Failed: git_checkout_target_branches.sh" $error_exit
 
-    "${script_dir}/prepare-rails-and-frontend.sh" || 
-        show_notification "run_review.sh" "Failed: prepare-rails-and-frontend.sh" $error_exit
+    "${script_dir}/prepare_rails_and_frontend.sh" || 
+        show_notification "run_review.sh" "Failed: prepare_rails_and_frontend.sh" $error_exit
 
-    "${script_dir}/check-and-test.sh" || 
-        show_notification "run_review.sh" "Failed: check-and-test.sh" $error_exit
+    "${script_dir}/check_and_test.sh" || 
+        show_notification "run_review.sh" "Failed: check_and_test.sh" $error_exit
 
     if [ -r 'coverage/index.html' ]; then
-      "${script_dir}/analyze_coverage.rb" into "$dst_branch" from "$src_branch"
+      "${script_dir}/analyze_coverage" into "$dst_branch" from "$src_branch"
     fi
 
 ) 2>&1 | tee "$logifle"

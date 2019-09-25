@@ -6,7 +6,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'nokogiri'
+gemspec
+
+gem 'nokogiri', '~> 1.10.4'
 
 group :development, :test do
   gem 'rake', '~> 10.0'
