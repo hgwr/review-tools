@@ -53,7 +53,7 @@ additional_db_preparation: |
   bundle exec bin/rails db:some:your:task
 
 additional_test_tasks: |
-  if [ ! -z "${do_frontend_tst:-}" ]; then
+  if [ ! -z "${do_frontend_test:-}" ]; then
     npm test
     eslint app/assets/javascripts/**/*
   fi
