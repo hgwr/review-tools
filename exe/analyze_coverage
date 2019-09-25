@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
 require 'nokogiri'
-# require 'pry'
 
 unless File.exist?('coverage/index.html')
   warn 'Error: coverage/index.html dose not exist.'
@@ -11,7 +10,7 @@ end
 html_doc = File.open('coverage/index.html') { |f| Nokogiri::HTML(f) }
 
 if ARGV.length != 4 || ARGV[0] != 'into' || ARGV[2] != 'from'
-  warn 'Usage: analyze_coverage.rb into milestone/abc from feature/cde'
+  warn 'Usage: analyze_coverage into milestone/abc from feature/cde'
   exit 1
 end
 
@@ -41,11 +40,11 @@ src_branch = ARGV[3]
     linenumber = li['data-linenumber']
     case li['class']
     when 'missed'
-      printf '%05d x ', linenumber
+      printf '%06d x ', linenumber
     when 'covered'
-      printf '%05d o ', linenumber
+      printf '%06d o ', linenumber
     else
-      printf '%05d ? ', linenumber
+      printf '%06d ? ', linenumber
     end
     puts li.css('code').text
   end
