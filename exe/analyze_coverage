@@ -18,14 +18,13 @@ dst_branch = ARGV[1]
 src_branch = ARGV[3]
 
 `git diff --name-only #{dst_branch}..#{src_branch}`.split("\n").each do |file_name|
-
   next unless file_name =~ /\.rb\z/
 
-  a_tags = html_doc.css(%Q(a[title="#{file_name}"]))
+  a_tags = html_doc.css(%(a[title="#{file_name}"]))
 
   puts "\n========== #{file_name} =========="
-  if a_tags.length == 0
-    puts "  no results"
+  if a_tags.length.zero?
+    puts '  no results'
     next
   end
 
@@ -48,5 +47,4 @@ src_branch = ARGV[3]
     end
     puts li.css('code').text
   end
-
 end
