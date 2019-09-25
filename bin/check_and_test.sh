@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Usage: check-and-test.sh
+# Usage: check_and_test.sh
 #
 # Example of ~/.config/review-tools.yml
 # 
@@ -17,7 +17,7 @@ trap 'echo "Ctrl-C captured and exit."; exit 1' INT
 trap 'echo "some error occured at $(pwd) and exit."; exit 8' SIGHUP
 
 script_dir=$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
-source "${script_dir}/common-functions.sh"
+source "${script_dir}/common_functions.sh"
 
 load_environment_variables test_environment_variables
 

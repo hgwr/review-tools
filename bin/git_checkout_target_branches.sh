@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Usage: git-checkout-target-branches.sh into milestone/abc from feature/cde
+# Usage: git_checkout_target_branches.sh into milestone/abc from feature/cde
 #
 
 set -o errexit
