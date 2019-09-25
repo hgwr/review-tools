@@ -8,6 +8,8 @@ end
 
 gemspec
 
+gem 'nokogiri', '~> 1.10.4'
+
 group :development, :test do
   gem 'rake', '~> 10.0'
   gem 'byebug', platform: :mri
