@@ -30,9 +30,9 @@ Or install it yourself as:
 >
 > **Open**	hgwr wants to merge 4 commits into master from dev
 
-2. Copy `into master from dev` and paste like `run_review.sh into master from dev` to terminal.
+2. Copy `into master from dev` and paste like `run_review into master from dev` to terminal.
 
-3. Then, `run_review.sh into master from dev` executes these operaitons.
+3. Then, Run `run_review into master from dev`. It executes these operaitons.
 
 - `git checkout ...`
 - Preparing environments. (e.g. Database migrations)
@@ -53,7 +53,10 @@ additional_db_preparation: |
   bundle exec bin/rails db:some:your:task
 
 additional_test_tasks: |
-  eslint app/assets/javascripts/**/*
+  if [ ! -z "${do_frontend_tst:-}" ]; then
+    npm test
+    eslint app/assets/javascripts/**/*
+  fi
 ```
 
 ## Contributing
