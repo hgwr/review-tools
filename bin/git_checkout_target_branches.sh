@@ -12,7 +12,7 @@ trap 'echo "Ctrl-C captured and exit."; exit 1' INT
 trap 'echo "some error occured at $(pwd) and exit."; exit 8' SIGHUP
 
 if [ $# -ne 4 ] || [ "$1" != "into" ]  || [ "$3" != "from" ]; then
-    echo "Usage: git-checkout-target-branches.sh into milestone/abc from feature/cde" 1>&2
+    echo "Usage: git_checkout_target_branches into milestone/abc from feature/cde" 1>&2
     exit 1
 fi
 
