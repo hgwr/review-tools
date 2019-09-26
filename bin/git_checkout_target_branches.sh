@@ -26,6 +26,8 @@ fi
 
 git checkout master
 git fetch -a || true
+git gc --prune=now || true
+git remote prune origin || true
 git pull origin master
 
 git checkout "$dst_branch"
