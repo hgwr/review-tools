@@ -13,7 +13,9 @@ review-tools gem は、 GitHub 上の Rails プロジェクトの pull request �
 
 こんな感じのワンライナーで、使用している各 Ruby のバージョンへ gem install できます。
 
-`orig_version=`rbenv version | sed -e 's/ .*$//'`; for rbv in `rbenv versions | sed -e 's/^[* ]*//' | cut -d ' ' -f 1 | grep -v system`; do echo rbenv global $rbv; gem install review-tools; done; rbenv global $orig_version`
+```
+orig_version=`rbenv version | sed -e 's/ .*$//'`; for rbv in `rbenv versions | sed -e 's/^[* ]*//' | cut -d ' ' -f 1 | grep -v system`; do echo rbenv global $rbv; gem install review-tools; done; rbenv global $orig_version
+```
 
 もしくは Gemfile に加えてしまってもいいでしょう。
 
