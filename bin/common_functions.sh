@@ -1,6 +1,13 @@
 error_exit=1
 success=0
 
+function check_if_git_dir () {
+    if [ ! -d .git ]; then
+        echo "Error: no git repository" 1>&2
+        exit 1
+    fi
+}
+
 function run_additional_task () {
     task_name="$1"
     if [ -f "${HOME}/.config/review-tools.yml" ]; then
