@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Usage: git_checkout_target_branches.sh into milestone/abc from feature/cde
+# Usage: look_changes_of_routes.sh into milestone/abc from feature/cde
 #
 
 set -o errexit
@@ -15,7 +15,7 @@ script_dir=$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 source "${script_dir}/common_functions.sh"
 
 if [ $# -ne 4 ] || [ "$1" != "into" ]  || [ "$3" != "from" ]; then
-    echo "Usage: git_checkout_target_branches into milestone/abc from feature/cde" 1>&2
+    echo "Usage: look_changes_of_routes into milestone/abc from feature/cde" 1>&2
     exit 1
 fi
 
@@ -24,14 +24,3 @@ src_branch="$4"
 
 check_if_git_dir
 
-git checkout master
-git fetch -a || true
-git gc --prune=now || true
-git remote prune origin || true
-git pull origin master
-
-git checkout "$dst_branch"
-git pull origin "$dst_branch"
-
-git checkout "$src_branch"
-git pull origin "$src_branch"

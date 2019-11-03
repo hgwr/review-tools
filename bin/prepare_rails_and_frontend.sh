@@ -22,10 +22,7 @@ trap 'echo "some error occured at $(pwd) and exit."; exit 8' SIGHUP
 script_dir=$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 source "${script_dir}/common_functions.sh"
 
-if [ ! -d .git ]; then
-    echo "Error: no git repository" 1>&2
-    exit 1
-fi
+check_if_git_dir
 
 if [ -f .ruby-version ]; then
     rbenv local `cat .ruby-version`
