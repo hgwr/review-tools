@@ -6,7 +6,7 @@
 set -o errexit
 set -o pipefail
 set -o nounset
-set -o xtrace
+# set -o xtrace
 
 script_dir=$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 source "${script_dir}/common_functions.sh"
@@ -31,6 +31,9 @@ logifle=~/tmp/run_review_`date +'%Y%m%d-%H%M%S'`.log
 
     "${script_dir}/prepare_rails_and_frontend.sh" || 
         show_notification "run_review.sh" "Failed: prepare_rails_and_frontend.sh" $error_exit
+
+    "${script_dir}/look_changes_of_routes.sh" ||
+        show_notification "run_review.sh" "Failed: look_changes_of_routes.sh" $error_exit
 
     if [ -z ${RUN_REVIEW_WITH_NO_TEST:-} ]; then
       "${script_dir}/check_and_test.sh" || 
