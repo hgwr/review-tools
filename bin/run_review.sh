@@ -32,7 +32,7 @@ logifle=~/tmp/run_review_`date +'%Y%m%d-%H%M%S'`.log
     "${script_dir}/prepare_rails_and_frontend.sh" || 
         show_notification "run_review.sh" "Failed: prepare_rails_and_frontend.sh" $error_exit
 
-    "${script_dir}/look_changes_of_routes.sh" ||
+    "${script_dir}/look_changes_of_routes.sh" into "$dst_branch" from "$src_branch" ||
         show_notification "run_review.sh" "Failed: look_changes_of_routes.sh" $error_exit
 
     if [ -z ${RUN_REVIEW_WITH_NO_TEST:-} ]; then
