@@ -3,4 +3,4 @@
 bin_dir = File.expand_path('../bin/', File.dirname(__FILE__))
 shell_script_path = File.join(bin_dir, 'look_changes_of_routes.sh')
 
-exec(shell_script_path)
+exec("#{shell_script_path} #{ARGV.join(' ')}")

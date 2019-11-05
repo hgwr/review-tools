@@ -24,16 +24,16 @@ src_branch="$4"
 
 check_if_git_dir
 
-if [ -x bin/rails ]; then
+if [ -x bin/rake ]; then
     dst_routes="/tmp/dst_routes_$$.txt"
     src_routes="/tmp/src_routes_$$.txt"
     diff_file="/tmp/changes_of_routes_$$.txt"
 
     git checkout "$dst_branch"
-    bundle exec bin/rake routes > ${dst_routes}
+    bundle exec rake routes > ${dst_routes}
 
     git checkout "$src_branch"
-    bundle exec bin/rake routes > ${src_routes}
+    bundle exec rake routes > ${src_routes}
 
     diff -u ${dst_routes} ${src_routes} > ${diff_file}
     if [ -s ${diff_file} ]; then
