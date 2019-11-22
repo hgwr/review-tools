@@ -8,6 +8,13 @@ function check_if_git_dir () {
     fi
 }
 
+function change_ruby_version () {
+    if [ -f .ruby-version ]; then
+        rbenv local `cat .ruby-version`
+    fi
+    bundle install --path vendor/bundle --jobs=4 --retry=3
+}
+
 function run_additional_task () {
     task_name="$1"
     if [ -f "${HOME}/.config/review-tools.yml" ]; then

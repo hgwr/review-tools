@@ -30,9 +30,11 @@ if [ -x bin/rake ]; then
     diff_file="/tmp/changes_of_routes_$$.txt"
 
     git checkout "$dst_branch"
+    change_ruby_version
     bundle exec rake routes > ${dst_routes}
 
     git checkout "$src_branch"
+    change_ruby_version
     bundle exec rake routes > ${src_routes}
 
     diff -u ${dst_routes} ${src_routes} > ${diff_file}

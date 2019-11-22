@@ -24,11 +24,7 @@ src_branch="$4"
 
 check_if_git_dir
 
-git checkout master
 git fetch -a || true
-git gc --prune=now || true
-git remote prune origin || true
-git pull origin master
 
 git checkout "$dst_branch"
 git pull origin "$dst_branch"
