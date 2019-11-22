@@ -36,7 +36,7 @@ logifle=~/tmp/run_review_`date +'%Y%m%d-%H%M%S'`.log
     "${script_dir}/look_changes_of_routes.sh" into "$dst_branch" from "$src_branch" || true
         # show_notification "run_review.sh" "Failed: look_changes_of_routes.sh" $error_exit
 
-    if [ -z ${RUN_REVIEW_WITH_NO_TEST:-} ]; then
+    if [ -z ${run_review_with_no_test:-} ]; then
       "${script_dir}/check_and_test.sh" || 
           show_notification "run_review.sh" "Failed: check_and_test.sh" $error_exit
 
