@@ -24,10 +24,7 @@ source "${script_dir}/common_functions.sh"
 
 check_if_git_dir
 
-if [ -f .ruby-version ]; then
-    rbenv local `cat .ruby-version`
-fi
-bundle install --path vendor/bundle --jobs=4 --retry=3
+change_ruby_version
 
 run_additional_task preparation
 
