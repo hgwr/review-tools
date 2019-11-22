@@ -30,16 +30,16 @@ elif [ `(which pront || true) | wc -l` -ge "1" ]; then
     pronto run
 fi
 
-if [ `(grep 'rspec' Gemfile || true) | wc -l` -ge "1" ]; then
-    bundle exec rspec spec
-else
-    bundle exec rake test
-fi
-
 if [ `(grep 'rubocop' Gemfile || true) | wc -l` -ge "1" ]; then
     bundle exec rubocop
 elif [ `(which rubocop || true) | wc -l` -ge "1" ]; then
     rubocop
+fi
+
+if [ `(grep 'rspec' Gemfile || true) | wc -l` -ge "1" ]; then
+    bundle exec rspec spec
+else
+    bundle exec rake test
 fi
 
 run_additional_task test_tasks
