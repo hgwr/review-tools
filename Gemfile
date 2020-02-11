@@ -8,7 +8,7 @@ end
 
 gemspec
 
-gem 'nokogiri', '~> 1.10.4'
+gem 'nokogiri', '~> 1.10.8'
 
 group :development, :test do
   gem 'rake', '~> 10.0'
