@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    review-tools (0.2.6)
+    review-tools (0.2.7)
       nokogiri (~> 1.10.4)
 
 GEM
@@ -114,4 +114,4 @@ DEPENDENCIES
   rspec
 
 BUNDLED WITH
-   2.0.2
+   2.1.4
