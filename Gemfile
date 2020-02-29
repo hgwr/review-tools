@@ -11,7 +11,7 @@ gemspec
 gem 'nokogiri', '~> 1.10.8'
 
 group :development, :test do
-  gem 'rake', '~> 10.0'
+  gem 'rake', '~> 13.0'
   gem 'byebug', platform: :mri
   gem 'pry-byebug'
   gem 'pronto'
